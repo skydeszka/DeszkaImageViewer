@@ -18,9 +18,9 @@ public partial class MainWindow : Window
     private FileInfo? _info;
     private uint _index = 0;
     private BitmapImage? _rawImage;
-    private BrushConverter _converter;
+    private readonly BrushConverter _converter;
 
-    private MainWindowUtils _utils;
+    private readonly MainWindowUtils _utils;
 
     public MainWindow(MainWindowUtils utils)
     {
@@ -114,6 +114,11 @@ public partial class MainWindow : Window
             return;
 
         _utils.Export(tag, ImageCanvas.Source);
+    }
+
+    private void OpenImageButton_Click(object sender, RoutedEventArgs e)
+    {
+
     }
 }
 

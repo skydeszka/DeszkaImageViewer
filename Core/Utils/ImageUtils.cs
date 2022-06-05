@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace DeszkaImageViewer.Core.Utils;
 
-public static class ImageUtils
+public class ImageUtils
 {
     public static class Save
     {
