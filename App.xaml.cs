@@ -26,6 +26,8 @@ public partial class App : Application
     {
         services.AddSingleton<MainWindow>();
         services.AddSingleton<MainWindowUtils>();
+        services.AddSingleton<DialogUtils>();
+        services.AddSingleton<ImageUtils>();
     }
 
     private void Application_Startup(object sender, StartupEventArgs e)
