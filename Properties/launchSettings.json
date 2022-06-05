@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DeszkaImageViewer": {
+      "commandName": "Project",
+      "commandLineArgs": "D:\\FONTOS\\Images\\logo.jpg"
+    }
+  }
+}
