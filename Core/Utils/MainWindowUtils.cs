@@ -93,4 +93,47 @@ public class MainWindowUtils
                 return;
         }
     }
+
+    public void ChangeImage()
+    {
+        if (_otherFiles is null)
+            return;
+
+        _info = new FileInfo(_otherFiles[_index]);
+
+        _rawImage = new BitmapImage();
+        _rawImage.BeginInit();
+        _rawImage.UriSource = new Uri(_info.Directory + "\\" + _info.Name);
+        _rawImage.EndInit();
+    }
+    
+    internal void Initialize()
+    {
+        if (!App.HasArgs)
+            return;
+
+        _info = new FileInfo(App.Args[0]);
+
+        if (_info is null)
+            return;
+
+        _rawImage = new BitmapImage();
+        _rawImage.BeginInit();
+        _rawImage.UriSource = new Uri(_info.Directory + "\\" + _info.Name);
+        _rawImage.EndInit();
+
+        ImageCanvas.Source = _rawImage;
+
+        if (_info.DirectoryName is null)
+            return;
+
+        _otherFiles = Directory.GetFiles(_info.DirectoryName, $"*{_info.Extension}");
+        for (int i = 0; i < _otherFiles.Length; i++)
+        {
+            if (_otherFiles[i] != _info.FullName)
+                continue;
+
+            _index = (uint)i;
+        }
+    }
 }
