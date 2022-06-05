@@ -6,9 +6,16 @@ namespace DeszkaImageViewer.Core.Utils;
 
 public class ImageUtils
 {
-    public static class Save
+    public readonly SaveHandler Save;
+
+    public ImageUtils()
     {
-        public static void ToPng(string savePath, ImageSource image)
+        Save = new SaveHandler();
+    }
+
+    public class SaveHandler
+    {
+        public void ToPng(string savePath, ImageSource image)
         {
             using var fileStream = new FileStream(savePath, FileMode.Create);
 
@@ -17,7 +24,7 @@ public class ImageUtils
             encoder.Save(fileStream);
         }
 
-        public static void ToJpeg(string savePath, ImageSource image)
+        public void ToJpeg(string savePath, ImageSource image)
         {
             using var fileStream = new FileStream(savePath, FileMode.Create);
 
@@ -26,7 +33,7 @@ public class ImageUtils
             encoder.Save(fileStream);
         }
 
-        public static void ToBmp(string savePath, ImageSource image)
+        public void ToBmp(string savePath, ImageSource image)
         {
             using var fileStream = new FileStream(savePath, FileMode.Create);
 
@@ -35,7 +42,7 @@ public class ImageUtils
             encoder.Save(fileStream);
         }
 
-        public static void ToGif(string savePath, ImageSource image)
+        public void ToGif(string savePath, ImageSource image)
         {
             using var fileStream = new FileStream(savePath, FileMode.Create);
 
