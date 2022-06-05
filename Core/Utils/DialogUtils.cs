@@ -2,9 +2,9 @@
 
 namespace DeszkaImageViewer.Core.Utils;
 
-public static class SaveDialogUtils
+public class DialogUtils
 {
-    public static bool OpenSaveDialog(string filter, out string filePath)
+    public bool OpenSaveDialog(string filter, out string filePath)
     {
         var saveFileDialg = new SaveFileDialog();
 
@@ -21,4 +21,5 @@ public static class SaveDialogUtils
         filePath = saveFileDialg.FileName;
         return true;
     }
+
 }
