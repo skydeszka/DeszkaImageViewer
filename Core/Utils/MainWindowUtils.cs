@@ -46,8 +46,8 @@ public class MainWindowUtils
         {
             _index = value;
             _index = Math.Max(_index, 0);
-            if (_index > _otherFiles?.Length)
-                _index = (uint)_otherFiles.Length - 1;
+            if (_index >= _otherFiles?.Length)
+                _index = 0;
         }
     }
 
@@ -121,8 +121,6 @@ public class MainWindowUtils
         _rawImage.BeginInit();
         _rawImage.UriSource = new Uri(_info.Directory + "\\" + _info.Name);
         _rawImage.EndInit();
-
-        ImageCanvas.Source = _rawImage;
 
         if (_info.DirectoryName is null)
             return;
