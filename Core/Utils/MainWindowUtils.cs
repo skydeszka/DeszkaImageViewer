@@ -72,7 +72,7 @@ public class MainWindowUtils
         var path = "";
         var filter = $"{extension.ToUpper()}|*.{extension}";
 
-        if (_dialogUtils.OpenSaveDialog(filter, out path))
+        if (!_dialogUtils.OpenSaveDialog(filter, out path))
             return;
 
         switch(extension)
@@ -101,13 +101,23 @@ public class MainWindowUtils
 
         _info = new FileInfo(_otherFiles[_index]);
 
-        _rawImage = new BitmapImage();
-        _rawImage.BeginInit();
-        _rawImage.UriSource = new Uri(_info.Directory + "\\" + _info.Name);
-        _rawImage.EndInit();
+        CreateNewImage(_info.Directory + "\\" + _info.Name);
     }
-    
-    internal void Initialize()
+
+    public void OpenImage()
+    {
+        var path = "";
+        var filter = _imageUtils.Filter;
+
+        if (!_dialogUtils.OpenOpenDialog(filter, out path))
+            return;
+
+        _info = new FileInfo(path);
+        CreateNewImage(_info.Directory + "\\" + _info.Name);
+        GetOtherFiles();
+    }
+
+    public void Initialize()
     {
         if (!App.HasArgs)
             return;
@@ -117,12 +127,13 @@ public class MainWindowUtils
         if (_info is null)
             return;
 
-        _rawImage = new BitmapImage();
-        _rawImage.BeginInit();
-        _rawImage.UriSource = new Uri(_info.Directory + "\\" + _info.Name);
-        _rawImage.EndInit();
+        CreateNewImage(_info.Directory + "\\" + _info.Name);
+        GetOtherFiles();
+    }
 
-        if (_info.DirectoryName is null)
+    private void GetOtherFiles()
+    {
+        if (_info is null || _info.DirectoryName is null)
             return;
 
         _otherFiles = Directory.GetFiles(_info.DirectoryName, $"*{_info.Extension}");
@@ -134,4 +145,12 @@ public class MainWindowUtils
             _index = (uint)i;
         }
     }
+
+    private void CreateNewImage(string path)
+    {
+        _rawImage = new BitmapImage();
+        _rawImage.BeginInit();
+        _rawImage.UriSource = new Uri(path);
+        _rawImage.EndInit();
+    }   
 }

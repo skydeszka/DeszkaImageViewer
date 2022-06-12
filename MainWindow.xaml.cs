@@ -52,29 +52,18 @@ public partial class MainWindow : Window
         ImageCanvas.Source = _utils.RawImage;
     }
 
-    private void ExportMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        var tag = ((MenuItem)sender).Tag.ToString();
-
-        if (tag is null)
-            return;
-
-        _utils.Export(tag, ImageCanvas.Source);
-    }
-
     private void OpenImageButton_Click(object sender, RoutedEventArgs e)
     {
-        
+        _utils.OpenImage();
+        ImageCanvas.Source = _utils.RawImage;
     }
 
     private void ExportImageButton_Click(object sender, RoutedEventArgs e)
     {
-
     }
 
     private void SaveImageButton_Click(object sender, RoutedEventArgs e)
     {
-
     }
 
     private void SaveImageAsButton_Click(object sender, RoutedEventArgs e)
