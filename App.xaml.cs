@@ -1,4 +1,5 @@
 ﻿using DeszkaImageViewer.Core.Utils;
+using DeszkaImageViewer.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
