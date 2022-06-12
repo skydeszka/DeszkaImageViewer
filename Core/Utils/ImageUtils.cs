@@ -7,6 +7,13 @@ namespace DeszkaImageViewer.Core.Utils;
 public class ImageUtils
 {
     public readonly SaveHandler Save;
+    public readonly string Filter =
+        "All Files|*.*|" +
+        "PNG (*.png)|*.png|" +
+        "JPG (*.jpg)|*.jpg|" +
+        "JPEG (*.jpeg)|*.jpeg|" +
+        "Bitmap (*.bmp)|*.bmp|" +
+        "GIF (*.gif)|*.gif";
 
     public ImageUtils()
     {
