@@ -14,8 +14,6 @@ namespace DeszkaImageViewer;
 /// </summary>
 public partial class MainWindow : Window
 {
-    
-
     private readonly MainWindowUtils _utils;
 
     public MainWindow(MainWindowUtils utils)
@@ -65,6 +63,21 @@ public partial class MainWindow : Window
     }
 
     private void OpenImageButton_Click(object sender, RoutedEventArgs e)
+    {
+        
+    }
+
+    private void ExportImageButton_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void SaveImageButton_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void SaveImageAsButton_Click(object sender, RoutedEventArgs e)
     {
 
     }

@@ -80,42 +80,30 @@
             Grid.Column="0"
             Grid.Row="1">
             <StackPanel
-                        VerticalAlignment="Stretch">
-                <Menu
-                            VerticalAlignment="Stretch">
-                    <Menu.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel Orientation="Vertical"/>
-                        </ItemsPanelTemplate>
-                    </Menu.ItemsPanel>
-                    <MenuItem
-                        x:Name="ExportMenuItemMain"
-                        Header="Export"
-                        Height="25">
-                        <MenuItem
-                                    Header="PNG"
-                                    Tag="png"
-                                    Click="ExportMenuItem_Click">
-                        </MenuItem>
-                        <MenuItem
-                                    Header="JPEG"
-                                    Tag="jpeg"
-                                    Click="ExportMenuItem_Click">
-                        </MenuItem>
-                        <MenuItem
-                                    Header="GIF"
-                                    Tag="gif"
-                                    Click="ExportMenuItem_Click">
-                        </MenuItem>
-                        <MenuItem
-                                    Header="BMP"
-                                    Tag="bmp"
-                                    Click="ExportMenuItem_Click">
-                        </MenuItem>
-                    </MenuItem>
-                    <MenuItem Height="25">
-                    </MenuItem>
-                </Menu>
+                VerticalAlignment="Stretch">
+                <Button
+                    Name="OpenImageButton"
+                    Click="OpenImageButton_Click"
+                    Content="Open"
+                    Style="{StaticResource MenuButtonTheme}"/>
+                <Line
+                    Height="2"/>
+                <Button
+                    Name="ExportImageButton"
+                    Click="ExportImageButton_Click"
+                    Content="Export"
+                    Style="{StaticResource MenuButtonTheme}"/>
+                <Button
+                    Name="SaveImageButton"
+                    Click="SaveImageButton_Click"
+                    Content="Save"
+                    Style="{StaticResource MenuButtonTheme}"/>
+                <Button
+                    Name="SaveImageAsButton"
+                    Click="SaveImageAsButton_Click"
+                    Content="Save As"
+                    Style="{StaticResource MenuButtonTheme}"/>
+
             </StackPanel>
         </Grid>
         <Grid
