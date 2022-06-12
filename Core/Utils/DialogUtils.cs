@@ -22,4 +22,19 @@ public class DialogUtils
         return true;
     }
 
+    public bool OpenOpenDialog(string filter, out string filePath)
+    {
+        var openFileDialog = new OpenFileDialog();
+
+        bool? result = openFileDialog.ShowDialog();
+
+        if (result is null || !result.Value)
+        {
+            filePath = "";
+            return false;
+        }
+
+        filePath = openFileDialog.FileName;
+        return true;
+    }
 }
