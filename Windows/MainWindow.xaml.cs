@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace DeszkaImageViewer;
+namespace DeszkaImageViewer.Windows;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
