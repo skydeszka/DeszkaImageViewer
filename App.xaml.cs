@@ -14,7 +14,15 @@ public partial class App : Application
     public static string[] Args = new string[0];
     public static bool HasArgs;
 
-    private ServiceProvider _serviceProvider;
+    private readonly ServiceProvider _serviceProvider;
+
+    public ServiceProvider ServiceProvider
+    {
+        get
+        {
+            return ServiceProvider;
+        }
+    }
 
     public App()
     {
@@ -27,6 +35,8 @@ public partial class App : Application
     {
         services.AddSingleton<MainWindow>();
         services.AddSingleton<MainWindowUtils>();
+        services.AddSingleton<ExportWindow>();
+        services.AddSingleton<ExportWindowUtils>();
         services.AddSingleton<DialogUtils>();
         services.AddSingleton<ImageUtils>();
     }
