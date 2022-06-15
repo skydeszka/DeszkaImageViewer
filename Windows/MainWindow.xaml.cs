@@ -1,4 +1,5 @@
 ﻿using DeszkaImageViewer.Core.Utils;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 using System;
 using System.IO;
@@ -60,6 +61,12 @@ public partial class MainWindow : Window
 
     private void ExportImageButton_Click(object sender, RoutedEventArgs e)
     {
+        if (_utils.RawImage is null)
+            return;
+
+        var exportWindow = new ExportWindow(new ExportWindowUtils(), _utils.RawImage);
+
+        exportWindow.ShowDialog();
     }
 
     private void SaveImageButton_Click(object sender, RoutedEventArgs e)
