@@ -29,15 +29,9 @@ public partial class MainWindow : Window
         ImageCanvas.Source = _utils.RawImage;
     }
 
-    private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-    {
-        this.WindowState = WindowState.Minimized;
-    }
+    private void MinimizeButton_Click(object sender, RoutedEventArgs e) => this.WindowState = WindowState.Minimized;
 
-    private void CloseButton_Click(object sender, RoutedEventArgs e)
-    {
-        this.Close();
-    }
+    private void CloseButton_Click(object sender, RoutedEventArgs e) => this.Close();
 
     private void NextImageButton_Click(object sender, RoutedEventArgs e)
     {
