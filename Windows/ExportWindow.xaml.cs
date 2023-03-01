@@ -44,6 +44,8 @@ public partial class ExportWindow : Window
         if (textBox is null)
             return;
 
+        textBox.IsEnabled = false;
+
         for(int i = 0; i < textBox.Text.Length; i++)
         {
             if (char.IsDigit(textBox.Text[i]))
@@ -52,7 +54,18 @@ public partial class ExportWindow : Window
             textBox.Text = textBox.Text.Remove(i, 1);
         }
 
+        bool widthTextBoxConvertable = WidthTextBox.Text.Length > 0;
+        bool heightTextBoxConvertable = HeightTextBox.Text.Length > 0;
+        if (widthTextBoxConvertable && heightTextBoxConvertable)
+        {
+            _imageSource.DecodePixelWidth = int.Parse(WidthTextBox.Text);
+            _imageSource.DecodePixelHeight = int.Parse(HeightTextBox.Text);
+        }
+
         textBox.CaretIndex = textBox.Text.Length;
+
+        textBox.IsEnabled = true;
+
         e.Handled = true;
     }
 

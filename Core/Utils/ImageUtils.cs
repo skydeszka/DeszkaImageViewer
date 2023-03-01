@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Drawing;
+using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -57,5 +58,10 @@ public class ImageUtils
             encoder.Frames.Add(BitmapFrame.Create(image as BitmapSource));
             encoder.Save(fileStream);
         }
+    }
+
+    public Bitmap Resize(BitmapImage image, int width, int height)
+    {
+        var a = image as Image;
     }
 }
